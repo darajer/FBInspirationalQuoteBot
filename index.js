@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
 			sendTextQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 	   
 	     }
-	     res.sendStatus(200)
+	     //res.sendStatus(200)
 	}}})
 
 	var token="EAAS0qe2E48IBAB08kKr9ZAEjZACGBBJK6XXAbiFchqmZBmBsZCKigKHSPHjU6a6ghLuZA2JiWHIB98n3bYV4xMcWeQHyGVb5fnfQQdf2ZABl7Ink4HZC2F7MXKK4LeFXWERM5Q6p8jNWtlGbGlEmAxjZCEUFUO1CqCy1qEutM99fLgZDZD"
