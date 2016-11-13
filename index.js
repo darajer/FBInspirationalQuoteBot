@@ -110,6 +110,27 @@ function sendTextQuote(sender, text) {
 	    })
 
 	}
+function sendTextSecondQuote(sender, text) {
+	messageData={
+		text:"Success is the ability to go from failure to failure without losing your enthusiasm. -Winston Churchill"
+	}
+	request({
+	    url:'https://graph.facebook.com/v2.6/me/messages',
+	     qs:{access_token:token},
+	     method: 'POST',
+	     json: {
+		recipient: {id:sender},
+		message:messageData,
+		}
+	      }, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if(response.body.error) {
+			console.log('Error: ', repsonse.body.error)
+		}
+	    })
+
+	}
 function sendTextThirdQuote(sender, text) {
 	messageData={
 		text:"Optimism is a happiness magnet. If you stay positive, good things and good people will be drawn to you."
