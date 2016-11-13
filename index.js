@@ -34,6 +34,7 @@ app.post('/webhook/', function (req, res) {
 	for (i=0; i<messaging_events.length; i++) {
 	    event=req.body.entry[0].messaging[i]
 	    sender=event.sender.id
+     	    res.sendStatus(200)
 	    if (event.message && event.message.text) {
 		text=event.message.text
 		if(text === "Hi"){
@@ -43,7 +44,6 @@ app.post('/webhook/', function (req, res) {
 			sendTextQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 	   
 	     }
-	     //res.sendStatus(200)
 	}}})
 
 	var token="EAAS0qe2E48IBAB08kKr9ZAEjZACGBBJK6XXAbiFchqmZBmBsZCKigKHSPHjU6a6ghLuZA2JiWHIB98n3bYV4xMcWeQHyGVb5fnfQQdf2ZABl7Ink4HZC2F7MXKK4LeFXWERM5Q6p8jNWtlGbGlEmAxjZCEUFUO1CqCy1qEutM99fLgZDZD"
