@@ -44,13 +44,13 @@ app.post('/webhook/', function (req, res) {
 	   
 	     }
 	     res.sendStatus(200)
-	})
+	}}})
 
 	var token="EAAS0qe2E48IBAB08kKr9ZAEjZACGBBJK6XXAbiFchqmZBmBsZCKigKHSPHjU6a6ghLuZA2JiWHIB98n3bYV4xMcWeQHyGVb5fnfQQdf2ZABl7Ink4HZC2F7MXKK4LeFXWERM5Q6p8jNWtlGbGlEmAxjZCEUFUO1CqCy1qEutM99fLgZDZD"
 
 function sendTextMessage(sender, text) {
 	messageData={
-		text:"Hi, I am here to provide you with some inspirational quotes. Are you ready?"
+		text: "Hi, I am here to provide you with some inspirational quotes. Are you ready?"
 	}
 	request({
 	    url:'https://graph.facebook.com/v2.6/me/messages',
