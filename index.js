@@ -54,11 +54,8 @@ app.post('/webhook/', function (req, res) {
 		else if(text=== 'fourth one'){
 			sendTextFourthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
-		else if(text=== 'fifth one'){
-			sendTextFifthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
-		}		
 		else if(text=== 'Im done.'){
-			sendTextBye(sender, "Text recieved, echo: " + text.substring(0,200))
+			sendTextFifthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
 
 
