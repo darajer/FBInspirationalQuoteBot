@@ -36,10 +36,10 @@ app.post('/webhook/', function (req, res) {
 	    sender=event.sender.id
 	    if (event.message && event.message.text) {
 		text=event.message.text
-		if(text === "Hi"){
+		if(text == "Hi"){
 			sendTextMessage(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
-		else if(text==='Yes' || text==='yes'){
+		else if(text=='Yes' || text=='yes'){
 				sendTextQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 	   
 	     }
@@ -70,7 +70,7 @@ function sendTextMessage(sender, text) {
 
 function sendTextQuote(sender, text) {
 	messageData={
-		text:"Cool, first one is: 'We either make ourselves miserable, or we make ourselves strong. The amount of work is the same.'
+		text:"Cool, first one is: We either make ourselves miserable, or we make ourselves strong. The amount of work is the same.
 Carlos Castaneda"
 	}
 	request({
