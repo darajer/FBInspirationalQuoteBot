@@ -66,7 +66,8 @@ function sendTextMessage(sender, text) {
 		} else if(response.body.error) {
 			console.log('Error: ', repsonse.body.error)
 		}
-	    })
+	  })
+}
 
 function sendTextQuote(sender, text) {
 	messageData={
