@@ -43,7 +43,27 @@ app.post('/webhook/', function (req, res) {
 		else if(text ==='Yes'){
 			sendTextQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 	   
-	     }
+	     	}
+		
+		else if(text=== 'on to the next one'){
+			sendTextSecondQuote(sender, "Text recieved, echo: " + text.substring(0,200))
+		}
+		else if(text === 'third one'){
+			sendTextThirdQuote(sender, "Text recieved, echo: " + text.substring(0,200))
+		}
+		else if(text=== 'fourth one'){
+			sendTextFourthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
+		}
+		else if(text=== 'the next one sir'){
+			sendTextFifthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
+		}		
+		else if(text=== 'I'm done.'){
+			sendTextBye(sender, "Text recieved, echo: " + text.substring(0,200))
+		}
+
+
+
+		
 	}}})
 
 	var token="EAAS0qe2E48IBAB08kKr9ZAEjZACGBBJK6XXAbiFchqmZBmBsZCKigKHSPHjU6a6ghLuZA2JiWHIB98n3bYV4xMcWeQHyGVb5fnfQQdf2ZABl7Ink4HZC2F7MXKK4LeFXWERM5Q6p8jNWtlGbGlEmAxjZCEUFUO1CqCy1qEutM99fLgZDZD"
@@ -72,6 +92,90 @@ function sendTextMessage(sender, text) {
 function sendTextQuote(sender, text) {
 	messageData={
 		text:"Cool, first one is: We either make ourselves miserable, or we make ourselves strong. The amount of work is the same."
+	}
+	request({
+	    url:'https://graph.facebook.com/v2.6/me/messages',
+	     qs:{access_token:token},
+	     method: 'POST',
+	     json: {
+		recipient: {id:sender},
+		message:messageData,
+		}
+	      }, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if(response.body.error) {
+			console.log('Error: ', repsonse.body.error)
+		}
+	    })
+
+	}
+function sendTextSecondQuote(sender, text) {
+	messageData={
+		text:"Cool, first one is: We either make ourselves miserable, or we make ourselves strong. The amount of work is the same."
+	}
+	request({
+	    url:'https://graph.facebook.com/v2.6/me/messages',
+	     qs:{access_token:token},
+	     method: 'POST',
+	     json: {
+		recipient: {id:sender},
+		message:messageData,
+		}
+	      }, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if(response.body.error) {
+			console.log('Error: ', repsonse.body.error)
+		}
+	    })
+
+	}
+function sendTextThirdQuote(sender, text) {
+	messageData={
+		text:"Optimism is a happiness magnet. If you stay positive, good things and good people will be drawn to you."
+	}
+	request({
+	    url:'https://graph.facebook.com/v2.6/me/messages',
+	     qs:{access_token:token},
+	     method: 'POST',
+	     json: {
+		recipient: {id:sender},
+		message:messageData,
+		}
+	      }, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if(response.body.error) {
+			console.log('Error: ', repsonse.body.error)
+		}
+	    })
+
+	}
+function sendTextFourthQuote(sender, text) {
+	messageData={
+		text:"Absorb what is useful. Discard what is not. Add what is uniquely your own. -Bruce Lee"
+	}
+	request({
+	    url:'https://graph.facebook.com/v2.6/me/messages',
+	     qs:{access_token:token},
+	     method: 'POST',
+	     json: {
+		recipient: {id:sender},
+		message:messageData,
+		}
+	      }, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if(response.body.error) {
+			console.log('Error: ', repsonse.body.error)
+		}
+	    })
+
+	}
+function sendTextFifthQuote(sender, text) {
+	messageData={
+		text:"Thank for using the inspirational quote chatbot. Let me know if you want to hear more! If not come back another time."
 	}
 	request({
 	    url:'https://graph.facebook.com/v2.6/me/messages',
