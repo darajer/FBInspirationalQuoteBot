@@ -54,10 +54,10 @@ app.post('/webhook/', function (req, res) {
 		else if(text=== 'fourth one'){
 			sendTextFourthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
-		else if(text=== 'the next one sir'){
+		else if(text=== 'fifth one'){
 			sendTextFifthQuote(sender, "Text recieved, echo: " + text.substring(0,200))
 		}		
-		else if(text=== 'I'm done.'){
+		else if(text=== 'Im done.'){
 			sendTextBye(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
 
@@ -90,27 +90,6 @@ function sendTextMessage(sender, text) {
 }
 
 function sendTextQuote(sender, text) {
-	messageData={
-		text:"Cool, first one is: We either make ourselves miserable, or we make ourselves strong. The amount of work is the same."
-	}
-	request({
-	    url:'https://graph.facebook.com/v2.6/me/messages',
-	     qs:{access_token:token},
-	     method: 'POST',
-	     json: {
-		recipient: {id:sender},
-		message:messageData,
-		}
-	      }, function(error, response, body) {
-		if (error) {
-			console.log('Error sending messages: ', error)
-		} else if(response.body.error) {
-			console.log('Error: ', repsonse.body.error)
-		}
-	    })
-
-	}
-function sendTextSecondQuote(sender, text) {
 	messageData={
 		text:"Cool, first one is: We either make ourselves miserable, or we make ourselves strong. The amount of work is the same."
 	}
