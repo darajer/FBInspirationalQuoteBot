@@ -36,7 +36,7 @@ app.post('/webhook/', function (req, res) {
 	    sender=event.sender.id
 	    if (event.message && event.message.text) {
 		text=event.message.text
-		if(text === 'Hi'){
+		if(text === "Hi"){
 			sendTextMessage(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
 		else if(text==='Yes' || text==='yes'){
