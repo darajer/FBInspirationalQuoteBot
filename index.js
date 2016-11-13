@@ -36,8 +36,12 @@ app.post('/webhook/', function (req, res) {
 	    sender=event.sender.id
 	    if (event.message && event.message.text) {
 		text=event.message.text
-		sendTextMessage(sender, "Text recieved, echo: " + text.substring(0,200))
+		if(text === 'Hi'){
+			sendTextMessage(sender, "Text recieved, echo: " + text.substring(0,200))
 		}
+		else if(text==='Yes' || text==='yes'){
+				sendTextQuote(sender, "Text recieved, echo: " + text.substring(0,200))
+	   
 	     }
 	     res.sendStatus(200)
 	})
@@ -46,7 +50,7 @@ app.post('/webhook/', function (req, res) {
 
 function sendTextMessage(sender, text) {
 	messageData={
-		text:"Hi, what's your name?"
+		text:"Hi, I am here to provide you with some inspirational quotes. Are you ready?"
 	}
 	request({
 	    url:'https://graph.facebook.com/v2.6/me/messages',
@@ -63,5 +67,27 @@ function sendTextMessage(sender, text) {
 			console.log('Error: ', repsonse.body.error)
 		}
 	    })
+
+function sendTextQuote(sender, text) {
+	messageData={
+		text:"Cool, first one is: 'We either make ourselves miserable, or we make ourselves strong. The amount of work is the same.'
+Carlos Castaneda"
+	}
+	request({
+	    url:'https://graph.facebook.com/v2.6/me/messages',
+	     qs:{access_token:token},
+	     method: 'POST',
+	     json: {
+		recipient: {id:sender},
+		message:messageData,
+		}
+	      }, function(error, response, body) {
+		if (error) {
+			console.log('Error sending messages: ', error)
+		} else if(response.body.error) {
+			console.log('Error: ', repsonse.body.error)
+		}
+	    })
+
 	}
 
